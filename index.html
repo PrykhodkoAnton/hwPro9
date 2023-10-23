@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+        this.personInfo = function (){
+            console.log(`name : ${this.name}; age : ${this.age};`);
+        }
+    }
+
+    function Car(brand, model, year){
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.owner = null;
+        this.carInfo = function (){
+            console.log(`brand : ${this.brand}; model : ${this.model}; year : ${this.year};`);
+        }
+        this.carOwner = function (person){
+            this.owner = person.name;
+        }
+    }
+
+
+    const personName = prompt("введіть своє ім'я");
+    const personAge = prompt("введіть свій вік");
+    let person = new Person(personName, personAge);
+
+
+    const carBrand = prompt("Введіть марку авто");
+    const carModel = prompt("введіть модель авто");
+    const carYear = prompt("введіть рік випуску авто");
+    let car = new Car(carBrand, carModel, carYear);
+
+
+    car.carOwner(person);
+    const carOwner = car.owner;
+
+
+    person.personInfo();
+    car.carInfo();
+    console.log(`власник авто:${carBrand} - ${carModel} є ${carOwner}`);
+
+
+</script>
+
+</body>
+</html>
